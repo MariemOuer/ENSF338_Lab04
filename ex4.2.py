@@ -38,6 +38,7 @@ This occurs because at each step, the search space is halved.
 # 5. Provide the code for an experiment that demonstrates the difference. [0.2 pts] The experiment should:
     # 1. Time the execution of both implementations on realistic, large inputs (1000 elements or above)
     # 2. Plot the distribution of measured values across multiple measurements (>= 100 measurements per task)
+
 import time
 import random
 import matplotlib.pyplot as plt
@@ -87,3 +88,62 @@ if __name__ == "__main__":
     plt.legend()
     plt.show()
 
+
+
+# import time
+# import random
+# import matplotlib.pyplot as plt
+
+# # Linear search implementation
+# def linear_search(arr, target):
+#     for i in range(len(arr)):
+#         if arr[i] == target:
+#             return i
+#     return -1
+
+# # Binary search implementation
+# def binary_search(arr, target):
+#     left = 0
+#     right = len(arr) - 1
+#     while left <= right:
+#         mid = (left + right) // 2
+#         if arr[mid] == target:
+#             return mid
+#         elif arr[mid] < target:
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+#     return -1
+
+# # Function to perform the experiment
+# def run_experiment(search_func, input_size, num_measurements):
+#     execution_times = []
+#     for _ in range(num_measurements):
+#         # Generate a sorted array
+#         arr = sorted(random.sample(range(10_000), input_size))
+#         # Choose a random target element
+#         target = random.randint(0, 10_000)
+        
+#         # Measure execution time
+#         start_time = time.time()
+#         search_func(arr, target)
+#         end_time = time.time()
+#         execution_times.append(end_time - start_time)
+    
+#     return execution_times
+
+# # Perform the experiment for linear search
+# linear_times = run_experiment(linear_search, input_size=1000, num_measurements=100)
+
+# # Perform the experiment for binary search
+# binary_times = run_experiment(binary_search, input_size=1000, num_measurements=100)
+
+# # Plot the distribution of measured values
+# plt.figure(figsize=(10, 6))
+# plt.hist(linear_times, bins=20, alpha=0.5, label='Linear Search')
+# plt.hist(binary_times, bins=20, alpha=0.5, label='Binary Search')
+# plt.xlabel('Execution Time (seconds)')
+# plt.ylabel('Frequency')
+# plt.title('Distribution of Execution Times')
+# plt.legend()
+# plt.show()

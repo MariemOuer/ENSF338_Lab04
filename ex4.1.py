@@ -33,11 +33,14 @@ ensuring that the code's complexity is O(n) regardless of the input.
 # Modified Version
 def processdata(li):
     for i in range(len(li)):
-        if li[i] > 5:
+        for j in range(len(li)):
             li[i] *= 2
 
+
 '''
-In this modified version, we traverse the list once, and for each element that is greater than 5, 
-we perform a constant-time operation (multiplication by 2). 
-Thus, the time complexity becomes O(n) for all cases: best, worst, and average.
+In this modified version, there is no condition to check if an element is greater than 5, 
+and the inner loop always iterates over all elements of the list li. 
+As a result, whether the elements are greater than 5 or not, the inner loop executes 
+for all elements in the list for each iteration of the outer loop.
+Thus, the complexity becomes O(n^2) for all cases.
 '''
