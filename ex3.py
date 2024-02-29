@@ -23,8 +23,8 @@ experimentRepeats = 1000
 def check_list_capacity_changes(maximumSize):
     sampleList = []
     initialCapacity = sys.getsizeof(sampleList)
-    for i in range(maximumSize):
-        sampleList.append(i)
+    for j in range(maximumSize):
+        sampleList.append(j)
         currentCapacity = sys.getsizeof(sampleList)
         if currentCapacity != initialCapacity:
             print(f"Capacity changed: Length {len(sampleList)}, Size {currentCapacity} bytes")
